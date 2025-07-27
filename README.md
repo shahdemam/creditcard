@@ -1,25 +1,24 @@
-# 💳 Credit Card Customer Classification
+# 💳 Credit Card Fraud Detection
 
-This machine learning project focuses on classifying credit card customers based on their behavior and financial features. The aim is to identify customer types or potential churn using classification algorithms.
+This machine learning project focuses on detecting fraudulent credit card transactions using various classification algorithms. The dataset is highly imbalanced, and multiple preprocessing techniques were applied to enhance model performance.
 
 ## 📊 Dataset
-The dataset includes features such as:
-- Credit Limit
-- Balance
-- Purchases
-- Payments
-- Tenure
-- And other behavioral and demographic variables
+- Real credit card transaction data from a European cardholder.
+- Features:
+  - `V1` to `V28`: Principal Components (PCA-transformed)
+  - `Amount`: Transaction amount
+  - `Time`: Time in seconds since the first transaction
+  - `Class`: Target variable (0 = legitimate, 1 = fraud)
 
-## 🔧 Preprocessing
-- Handled missing/null values
-- Applied **Feature Scaling** using:
-  - `StandardScaler`
-  - `MinMaxScaler`
-- Encoded categorical variables (if needed)
-- Performed train-test split
+## 🔧 Preprocessing Steps
+- **Outlier Detection and Treatment**: Handled outliers in the dataset
+- **SMOTE**: Applied Synthetic Minority Oversampling Technique to balance the dataset
+- **Feature Scaling** using:
+  - `StandardScaler` or `MinMaxScaler`
+- Dropped/Handled any missing values (if applicable)
+- Splitted the data into training and testing sets
 
-## 🤖 Models Applied
+## 🤖 Classification Models Used
 - Logistic Regression
 - Naive Bayes
 - K-Nearest Neighbors (KNN)
@@ -32,21 +31,25 @@ The dataset includes features such as:
 📝 *Note: Random Forest was not used in this project.*
 
 ## 📈 Evaluation Metrics
-- Accuracy Score
+- Accuracy
+- Precision, Recall, F1-Score
 - Confusion Matrix
-- Classification Report (Precision, Recall, F1 Score)
-- (Optional) ROC Curve / AUC
+- ROC-AUC Score
 
-## 🛠️ Tech Stack
+## 🛠️ Tools & Libraries
 - Python
 - Pandas, NumPy
 - Scikit-learn
+- imbalanced-learn (`SMOTE`)
 - XGBoost
-- Matplotlib, Seaborn for visualization
+- Matplotlib, Seaborn
 
 ---
 
 ### 📎 Notes
-This project compares different classification models and highlights the importance of **data preprocessing** and **scaling** for performance. The use of multiple algorithms with `GridSearchCV` helped in identifying the best-performing model.
+This project handles:
+- Highly imbalanced dataset using **SMOTE**
+- Scaling for distance-sensitive algorithms (e.g., KNN, SVM)
+- **Outlier treatment** for cleaner data and better model training
 
-👉 Check the notebook for full implementation and visual insights.
+📁 Check the Jupyter Notebook for complete implementation and visual insights.
